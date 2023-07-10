@@ -186,6 +186,30 @@ header {
     border: #cccccc solid 3px;
     transition: 0.1s;
 }
+.post6{
+    background: #fff;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 10px;
+    line-height: 20px;
+    display: flex;
+    border-radius: 2px;
+    padding: 6px;
+    line-height: 30px;
+    margin-top: 10px;
+}
+.colorbox{
+    width: 100%;
+}
+.circle{
+    height: 30px;
+    width: 30px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 10px 0 10px;
+}
+
 footer{
     bottom: 0;
     width: 30%;
