@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    font-family: 'Kanit', sans-serif;
+    font-weight: 300;
+}
+body{
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+}
+section {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100vh;
+}
+header {
+    top: 0;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 100px;
+}
+.info_box{
+    display: flex;
+    width: 100%;
+}
+.ex-img {
+    width: 100%;
+    height: cover;
+    object-fit: cover;
+    display: flex;
+    position: absolute;
+}
+.info_bar{
+    width: 600px;
+    margin: 10px 50px;
+    height: 70vh;
+    overflow-y: scroll;
+}
+.info_bar::-webkit-scrollbar{
+    display: none;
+  }
+#grad1 {
+    height: 200px;
+    background-image: linear-gradient(to right, rgb(35, 35, 65) ,  rgb(38, 40, 143));
+  }
+.post1{
+    background: #4100f5;
+    color: aliceblue;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+    font-weight: 800;
+    line-height: 20px;
+}
+.post1 h2{
+    font-weight: 500;
+}
+.post1 a{
+    color: aliceblue;
+    line-height: 40px;
+}
+.post2{
+    background: none;
+    color: rgb(59, 59, 161);
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+    line-height: 20px;
+}
+.post2 h2{
+    font-weight: 400;
+    font-size: 50px;
+}
+.post3{
+    background: #dad7e9;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 10px;
+    line-height: 20px;
+    display: flex;
+    border-radius: 2px;
+    padding: 6px;
+    line-height: 30px;
+}
+.coi1 {
+    width: 100%;
+    background: #ffffff;
+    border-radius: 2px;
+    box-shadow: #000 1px;
+}
+.coi2 {
+    width: 100%;
+    background: #dad7e9;
+}
+#coi_1:checked ~ .coi1 {
+    background: #ffffff;;
+    transition: 0.1s;
+}
+#coi_1:checked ~ .coi2 {
+    background: #dad7e9;
+    transition: 0.1s;
+}
+#coi_2:checked ~ .coi1 {
+    background: #dad7e9;
+    transition: 0.1s;
+}
+#coi_2:checked ~ .coi2 {
+    background: #ffffff;
+    transition: 0.1s;
+}
+.post4{
+    background: #fff;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 10px;
+    line-height: 20px;
+    display: flex;
+    border-radius: 2px;
+    padding: 6px;
+    line-height: 30px;
+    margin-top: 10px;
+}
+.explain{
+    width: 100%;
+}
+.post4 h2{
+    font-size: 25px;
+    line-height: 10px;
+}
+.post4 h3{
+    font-size: 15px;
+    line-height: 10px;
+}
+.post5 h2{
+    margin: 0;
+}
+.post5 h4{
+    margin: 0 0 30px 0;
+}
+.driven{
+    display: flex;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.drive_box1, .drive_box2, .drive_box3{
+    border-radius: 4px;
+    display: flex;
+    border: #cccccc solid 3px;
+    align-items: center;
+    position: relative;
+    justify-content: space-between;
+    font-size: 15px;
+    padding: 0 10px;
+    margin-bottom: 5px;
+    line-height: 10px;
+}
+#drive_1:checked ~ .driven .drive_box1{
+    border: #4100f5 solid 3px;
+    transition: 0.1s;
+}
+#drive_1:checked ~ .driven .drive_box2,.driven .drive_box3{
+    border: #cccccc solid 3px;
+    transition: 0.1s;
+}
+#drive_2:checked ~ .driven .drive_box2{
+    border: #4100f5 solid 3px;
+    transition: 0.1s;
+}
+#drive_2:checked ~ .driveh1 .drive_box1{
+    border: #cccccc solid 3px;
+    transition: 0.1s;
+}
+#drive_3:checked ~ .driven .drive_box3{
+    border: #4100f5 solid 3px;
+    transition: 0.1s;
+}
+#drive_3:checked ~ .drive_box1,.driven .drive_box2{
+    border: #cccccc solid 3px;
+    transition: 0.1s;
+}
+footer{
+    bottom: 0;
+    width: 30%;
+    background: #e6ddff;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    position: absolute;
+    left: 10%;
+    text-align: center;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.subfoot{
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+}
+footer h3{
+    width: 50%;
+}
