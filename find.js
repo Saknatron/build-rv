@@ -1,23 +1,7 @@
-function movedown(){
-    document.getElementById("movedown").style = "display: none";
-    document.getElementById("index2").style = "height: 0vh";
-    document.getElementById("openlist").style = "display: ''";
-}
-function index2(){
-    if(screen.width < 1000){
-        document.getElementById("movedown").style = "display: flex";
-        document.getElementById("index2").style = "height: 70vh";
-        document.getElementById("openlist").style = "display: none";
-    }
-}
-function openlist(){
-    document.getElementById("movedown").style = "display: flex";
-    document.getElementById("index2").style = "height: 70vh";
-    document.getElementById("openlist").style = "display: none";
-}
-function find() {
-    provid = document.getElementById('prov').value;
-    iii = zonereturndata(provid);
+
+function find(x) {
+    zone = document.getElementById('zone').value;
+    iii = zonereturndata(zone);
     var stylesArray = [
         {
             "elementType": "geometry",
@@ -214,52 +198,72 @@ function find() {
             ]
         }
     ]
-    let province = document.getElementById("prov").value
-    if(document.getElementById("prov").value == "none"){
-        var zoomset = 6
-    }
-    else{
-        var zoomset = 10
+    
+    
+    switch(document.getElementById("zone").value){
+        case 'Victoria':
+            centercase = { lat: -36.4, lng: 144.4 };
+            zoomcase = 7;
+            break;
+        case 'NSW':
+            centercase = { lat: -34, lng: 149.98};
+            zoomcase = 6.5;
+            break;
+        case 'ACT':
+            centercase = { lat: -35.33, lng: 149.18 };
+            zoomcase = 8;
+            break;
+        case 'Western Australia':
+            centercase = { lat: -31.85, lng: 115.88};
+            zoomcase = 8;
+            break;
+        case 'South Australia':
+            centercase = { lat: -34.79, lng: 137.26};
+            zoomcase = 7;
+            break;
+        case 'Queen Land':
+            centercase = { lat: -23.37, lng: 150.13 };
+            zoomcase = 5.5;
+            break;
+        case 'Tasmania':
+            centercase = { lat: -42.99, lng: 147.29};
+            zoomcase = 9;
+            break;
+        default:
+            centercase = { lat: -29, lng: 133 };
+            zoomcase = 4.5;
     }
     var mapProp = {
-        center: { lat: 13.727677758186708, lng: 100.774984896252 },
-        zoom: zoomset,
+        center: centercase,
+        zoom: zoomcase,
         styles: stylesArray,
     };
-    let prov = ['กระบี่', 'กรุงเทพมหานคร', 'กาญจนบุรี', 'กาฬสินธุ์', 'กำแพงเพชร', 'ขอนแก่น', 'จังหวัดนราธิวาส', 'จันทบุรี', 'ฉะเชิงเทรา', 'ชลบุรี', 'ชัยนาท', 'ชัยภูมิ', 'ชุมพร', 'เชียงใหม่', 'เชียงราย', 'ตรัง', 'ตราด', 'ตาก', 'นครนายก', 'นครปฐม', 'นครพนม', 'นครราชสีมา', 'นครศรีธรรมราช', 'นครสวรรค์', 'นนทบุรี', 'น่าน', 'บึงกาฬ', 'บุรีรัมย์', 'ปทุมธานี', 'ประจวบคีรีขันธ์', 'ปราจีนบุรี', 'ปัตตานี', 'พระนครศรีอยุธยา', 'พะเยา', 'พังงา', 'พัทลุง', 'พิจิตร', 'พิษณุโลก', 'เพชรบุรี', 'เพชรบูรณ์', 'แพร่', 'แม่ฮ่องสอน', 'ภูเก็ต', 'มหาสารคาม', 'มุกดาหาร', 'ยโสธร', 'ยะลา', 'ร้อยเอ็ด', 'ระนอง', 'ระยอง', 'ราชบุรี', 'ลพบุรี', 'ลำปาง', 'ลำพูน', 'เลย', 'ศรีสะเกษ', 'สกลนคร', 'สงขลา', 'สตูล', 'สมุทรปราการ', 'สมุทรสงคราม', 'สมุทรสาคร', 'สระแก้ว', 'สระบุรี', 'สิงห์บุรี', 'สุโขทัย', 'สุพรรณบุรี', 'สุราษฎร์ธานี', 'สุรินทร์', 'หนองคาย', 'หนองบัวลำภู', 'อ่างทอง', 'อำนาจเจริญ', 'อุดรธานี', 'อุตรดิตถ์', 'อุทัยธานี', 'อุบลราชธานี']
-    let element = document.getElementById("prov");
-    for(var i=0; i<77; i++){
-        let para = document.createElement("option");
-        let node = document.createTextNode(prov[i]);
-        para.appendChild(node);
-        para.setAttribute("value", prov[i]);
-        element.appendChild(para);
-    }
     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
     var infoWindow = new google.maps.InfoWindow(), marker, i;
-    let grouplist = document.getElementById("grouplist");
-    while (grouplist.hasChildNodes()) {
-        grouplist.removeChild(grouplist.firstChild)
+    let element = document.getElementById("grouplist");
+    while (element.hasChildNodes()) {
+        element.removeChild(element.firstChild)
     }
     for (i = 0; i < iii; i++) {
         var position = new google.maps.LatLng(pinlocat[i].lat, pinlocat[i].lng);
         marker = new google.maps.Marker({
-            map: map});
-        if(grouplocat[i]=='1' && (document.getElementById('data').value == "A" || document.getElementById('data').value == "O")){
-            marker = new google.maps.Marker({
-                position: position,
+            position: position,
+            map: map,
+            title: name_json[i],
+            icon: { url: "pin_carryboy_blue_O.png" }
+        });
+        if(x != null){
+            var position_2 = new google.maps.LatLng(pinlocat[x].lat, pinlocat[x].lng);
+            marker_2 = new google.maps.Marker({
+                position: position_2,
                 map: map,
                 title: name_json[i],
-                icon: { url: "pin_carryboy_red_O.png", anchor: new google.maps.Point(15,15) }
+                icon: { url: "pin_carryboy_blue_O.png" }
             });
-        }
-        if(grouplocat[i]=='2' && (document.getElementById('data').value == "B" || document.getElementById('data').value == "O")){
-            marker = new google.maps.Marker({
-                position: position,
-                map: map,
-                title: name_json[i],
-                icon: { url: "pin_carryboy_blue_O.png", anchor: new google.maps.Point(15,15)}
-            });
+            infoWindow.setContent(infoWindowContent[x]);
+            infoWindow.open(map, marker_2);
+            map.setZoom(9);
+            map.panTo(marker_2.getPosition());
         }
         google.maps.event.addListener(marker, 'click', (function (marker, i) {
             return function () {
@@ -275,22 +279,14 @@ function find() {
         });
         let para = document.createElement("div");
         let top1 = document.createElement("h2");
-        let top2 = document.createElement("h4");
-        let top3 = document.createElement("h3");
-        let top4 = document.createElement("h3");
+        let top2 = document.createElement("h3");
         let node = document.createTextNode(name_json[i]);
-        let node2 = document.createTextNode(location_json[i]);
-        let node3 = document.createTextNode(time_json[i]);
-        let node4 = document.createTextNode(phone_json[i]);
+        let nude = document.createTextNode(phone_json[i]);
         
         top1.appendChild(node);
-        top2.appendChild(node2);
-        top3.appendChild(node3);
-        top4.appendChild(node4);
+        top2.appendChild(nude);
         para.appendChild(top1);
         para.appendChild(top2);
-        para.appendChild(top3);
-        para.appendChild(top4);
         //para.setAttribute("onclick", "find("+i+")")
         para.addEventListener('click', (function (marker, i) {
             return function () {
@@ -300,6 +296,7 @@ function find() {
                 map.panTo(marker.getPosition());
             }
         })(marker, i));
-        grouplist.appendChild(para);
+        element.appendChild(para);
     }
+
 }
