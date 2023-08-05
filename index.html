@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="style.css">
     <script src="link.js"></script>
     <script src="find.js"></script>
-    <script src="test.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--script type="module"  src="test.js"></script-->
 </head>
 
@@ -18,46 +16,12 @@
 
     <div class="head_bar">
         <a href="https://www.carryboy.co.th/"><img id="logo" src="logo.png" alt=""></a>
-        <div class="aaarrr">
-            <label for="data" style="display: none;"></label>
-            <select list="browsers" class="select_data" name="data" id="data">
-                <option value="O" selected>-- เลือกตัวแทนจำหน่าย --</option>
-                <option value="A">ตัวแทนจำหน่าย ประดับยนต์</option>
-                <option value="B">ตัวแทนจำหน่าย ประดับยนต์</option>
-            </select>
-            <label for="prov" style="display: none;"></label>
-            <select list="browsers" class="select_prov" name="prov" id="prov">
-                <option value="none" selected>-- เลือกจังหวัด --</option>
-            </select>
-            <label for="prov" style="display: none;"></label>
-            <select list="browsers" class="select_prov" name="prov" id="bnk">
-                <option value="none" selected>-- เลือกเขต/อำเภอ --</option>
-            </select>
-            <input type="button" class="button" onclick="find()" value="ค้นหา"></input>
-        </div>
 
-
+        
     </div>
-    <div class="index-3" id="movedown" onclick="movedown()" ></div>
-    <div class="index-4" id="openlist" onclick="openlist()" >
-        <button style="font-size:12px;padding: 10px 10px; background-color: #ffffff; border: none; border-radius: 7px; box-shadow: 0px 0px 10px 0px #aaaaaa;"><i class="fa fa-navicon" style="padding: 5px 5px;"></i> View list </button>
-    </div>
-
-    <div class="index-2" id="index2" onclick="index2()">
-        <div class="grouplist" id="grouplist" >
-
+    <div class="index-2">
+        <div class="grouplist" id="grouplist">
         </div>
-        <!--div class="cbox">
-            <div class="cboxsub">
-                <input type="checkbox" id="data1" name="data1" value="data1" checked onchange="find()">
-                <label for="data1">ตัวแทนจำหน่าย <strong style="font-weight: 500; color: #aa0000;">หลังคารถกระบะ</strong></label><br>
-            </div>
-            <div class="cboxsub">
-                <input type="checkbox" id="data2" name="data2" value="data2" checked onchange="find()">
-                <label for="data2">ตัวแทนจำหน่าย <strong style="font-weight: 500; color: #0000aa;">ประดับยนต์</strong></label><br>
-            </div>
-        </div-->
-
     </div>
     <div id="googleMap" class="googleMap_style"></div>
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=AIzaSyB3Jeedb2Crz2PpQNUWkFQLPPCfU8XCuD0"
